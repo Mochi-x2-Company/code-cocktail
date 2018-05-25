@@ -8,6 +8,9 @@ import (
 
 func Migrate(db *gorm.DB) {
 	que := QueMigrate()
-	db.AutoMigrate(que)
+	ans := AnsMigrate()
+	cate := CateMigrate()
+	res := ResMigrate()
+	db.AutoMigrate(que, ans, cate, res)
 	fmt.Println("Auto Migrate")
 }
