@@ -5,19 +5,19 @@ import (
 	"net/http"
 )
 
-func QueIndex() echo.HandlerFunc {
+func UserIndex() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		jsonMap := map[string]string{
-			"question": "index",
+			"user": "index",
 		}
 		return c.JSON(http.StatusOK, jsonMap)
 	}
 }
 
-func QueShow() echo.HandlerFunc {
+func UserShow() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		jsonMap := map[string]string{
-			"question": "show",
+			"user": "show",
 		}
 		return c.JSON(http.StatusOK, jsonMap)
 	}
