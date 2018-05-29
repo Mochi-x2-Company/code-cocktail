@@ -11,7 +11,8 @@ import (
 func main() {
 	// 初期準備
 	e := echo.New()
-	db := config.PQCon()
+	// db := config.PQCon()
+	db := config.PQPro()
 
 	// ミドルウェア
 	e.Use(middleware.Logger())
