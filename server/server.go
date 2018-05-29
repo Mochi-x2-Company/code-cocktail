@@ -21,7 +21,13 @@ func main() {
 	models.Migrate(db)
 
 	// ルーティング
-	e.GET("/", controllers.QueIndex())
+	e.GET("/", controllers.Sample())
+	e.GET("/question", controllers.QueIndex())
+	e.GET("/user", controllers.UserIndex())
+	e.GET("/contest", controllers.ConIndex())
+	e.GET("/question/:id", controllers.QueShow())
+	e.GET("/user/:id", controllers.UserShow())
+	e.GET("/contest/:id", controllers.ConShow())
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
