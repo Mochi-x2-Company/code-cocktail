@@ -4,21 +4,21 @@ import (
 	"time"
 )
 
-type Category struct {
+type Contest struct {
 	Id        int       `json:id sql:AUTO_INCREMENT`
 	Title     string    `json: title`
 	StartTime time.Time `json: start_time`
 	EndTime   time.Time `json: end_time`
 }
 
-func CateSingle() Category {
-	return Category{}
+func ConSingle() Contest {
+	return Contest{}
 }
 
-func CateAll() []Category {
-	return []Category{}
+func ConAll() []Contest {
+	return []Contest{}
 }
 
-func CateMigrate() *Category {
-	return &Category{}
+func ConMigrate() *Contest {
+	return &Contest{}
 }
