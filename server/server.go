@@ -4,24 +4,37 @@ import (
 	"./config"
 	"./controllers"
 	"./models"
+	"flag"
+	"fmt"
+	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
 
 func main() {
 	// 初期準備
+	flag.Parse()
 	e := echo.New()
-	// db := config.PQCon()
-	db := config.PQPro()
+	var db *gorm.DB
+
+	// 実行時引数がproductionであればproduction環境で実行する
+	// それ以外であればdevelopment環境で実行する
+	if flag.Arg(0) == "production" {
+		db = config.PQPro()
+		fmt.Println("=== production ===")
+	} else {
+		db = config.PQDev()
+		fmt.Println("=== development ===")
+	}
 
 	// ミドルウェア
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	// 前処理
+	// Migrateをする
 	models.Migrate(db)
 
-	// ルーティング
+	// == ルーティング ==
 	// サンプル
 	e.GET("/", controllers.Sample())
 
