@@ -48,7 +48,7 @@ func main() {
 
 	// show
 	e.GET("/user/:id", controllers.UserShow())
-	e.GET("/question/:id", controllers.QueShow())
+	e.GET("/question/:id", controllers.QueShow(db))
 	e.GET("/contest/:id", controllers.ConShow())
 	e.GET("/contest/team/:id", controllers.TeamShow())
 
