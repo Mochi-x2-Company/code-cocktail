@@ -11,7 +11,7 @@ import (
 
 // Questionテーブルに値をinsertしていく
 func que(db *gorm.DB) {
-	for i := 1; i <= 100; i++ {
+	for i := 1; i <= 10; i++ {
 		que := models.QueSingle()
 		que.Title = "hoge" + (strconv.Itoa(i))
 		que.Body = "hogehogehoge" + (strconv.Itoa(i))

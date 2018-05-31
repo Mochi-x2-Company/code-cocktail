@@ -42,7 +42,7 @@ func main() {
 
 	// index
 	e.GET("/user", controllers.UserIndex())
-	e.GET("/question", controllers.QueIndex())
+	e.GET("/question", controllers.QueIndex(db))
 	e.GET("/contest", controllers.ConIndex())
 	e.GET("/contest/team", controllers.TeamIndex())
 
