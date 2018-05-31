@@ -21,9 +21,11 @@ func main() {
 	// それ以外であればdevelopment環境で実行する
 	if flag.Arg(0) == "production" {
 		db = config.PQPro()
+		defer db.Close()
 		fmt.Println("=== production ===")
 	} else {
 		db = config.PQDev()
+		defer db.Close()
 		fmt.Println("=== development ===")
 	}
 
