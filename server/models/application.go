@@ -12,7 +12,8 @@ func Migrate(db *gorm.DB) {
 	cate := ConMigrate()
 	res := ResMigrate()
 	team := TeamMigrate()
+	user := UserMigrate()
 
-	db.AutoMigrate(que, ans, cate, res, team)
+	db.AutoMigrate(que, ans, cate, res, team, user)
 	fmt.Println("Auto Migrate")
 }

@@ -1,9 +1,11 @@
 package models
 
-import ()
+import (
+	"github.com/jinzhu/gorm"
+)
 
 type Team struct {
-	Id        int `json:id sql:AUTO_INCREMENT`
+	gorm.Model
 	UserId    int `json: user_id`
 	ContestId int `json: contest_id`
 }

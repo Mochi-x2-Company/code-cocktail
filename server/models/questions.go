@@ -1,9 +1,11 @@
 package models
 
-import ()
+import (
+	"github.com/jinzhu/gorm"
+)
 
 type Question struct {
-	Id    int    `json:id sql:AUTO_INCREMENT`
+	gorm.Model
 	Title string `json: title`
 	Body  string `json: body`
 }

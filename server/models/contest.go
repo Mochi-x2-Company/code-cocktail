@@ -1,11 +1,12 @@
 package models
 
 import (
+	"github.com/jinzhu/gorm"
 	"time"
 )
 
 type Contest struct {
-	Id        int       `json:id sql:AUTO_INCREMENT`
+	gorm.Model
 	Title     string    `json: title`
 	StartTime time.Time `json: start_time`
 	EndTime   time.Time `json: end_time`
