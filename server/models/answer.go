@@ -6,9 +6,9 @@ import (
 
 type Answer struct {
 	gorm.Model
-	Input      string `json: input`
-	Output     string `json: output`
-	QuestionId int    `json: queston_id`
+	Input      string
+	Output     string
+	QuestionId int `gorm: "not null"`
 }
 
 func AnsSingle() Answer {

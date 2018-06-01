@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"../models"
+	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 	"net/http"
@@ -25,5 +26,19 @@ func QueShow(db *gorm.DB) echo.HandlerFunc {
 		que.ID = id
 		db.Debug().First(&que)
 		return c.JSON(http.StatusOK, que)
+	}
+}
+
+func QueCreate(db *gorm.DB) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		q := new(models.Question)
+
+		if err := c.Bind(q); err != nil {
+			fmt.Println(err)
+			fmt.Println()
+			return nil
+		}
+
+		return c.JSON(http.StatusCreated, q)
 	}
 }

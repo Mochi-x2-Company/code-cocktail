@@ -52,5 +52,9 @@ func main() {
 	e.GET("/contest/:id", controllers.ConShow())
 	e.GET("/contest/team/:id", controllers.TeamShow())
 
+	// create
+	e.POST("/question", controllers.QueCreate(db))
+	// e.POST("/question", controllers.QueCreate())
+
 	e.Logger.Fatal(e.Start(":3000"))
 }
