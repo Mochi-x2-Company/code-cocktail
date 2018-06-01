@@ -54,7 +54,9 @@ func main() {
 
 	// create
 	e.POST("/question", controllers.QueCreate(db))
-	// e.POST("/question", controllers.QueCreate())
+
+	// delete
+	e.DELETE("/question/:id", controllers.QueDelete(db))
 
 	e.Logger.Fatal(e.Start(":3000"))
 }

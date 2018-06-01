@@ -45,3 +45,20 @@ func QueCreate(db *gorm.DB) echo.HandlerFunc {
 		return c.JSON(http.StatusCreated, q)
 	}
 }
+
+func QueDelete(db *gorm.DB) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		num, _ := strconv.Atoi(c.Param("id"))
+		id := uint(num)
+
+		que := models.QueSingle()
+		que.ID = id
+		db.Debug().First(&que)
+		db.Debug().Delete(&que)
+
+		jsonMap := map[string]string{
+			"question": "delete",
+		}
+		return c.JSON(http.StatusOK, jsonMap)
+	}
+}
