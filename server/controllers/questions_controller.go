@@ -45,6 +45,29 @@ func QueCreate(db *gorm.DB) echo.HandlerFunc {
 		return c.JSON(http.StatusCreated, q)
 	}
 }
+func QueUpdate(db *gorm.DB) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		num, _ := strconv.Atoi(c.Param("id"))
+		id := uint(num)
+		q := new(models.Question)
+
+		if err := c.Bind(q); err != nil {
+			fmt.Println("err")
+			fmt.Println()
+			fmt.Println(err)
+			return nil
+		}
+
+		que := models.QueSingle()
+		que.ID = id
+		db.Debug().Model(que).Update(&q)
+
+		jsonMap := map[string]string{
+			"question": "update",
+		}
+		return c.JSON(http.StatusOK, jsonMap)
+	}
+}
 
 func QueDelete(db *gorm.DB) echo.HandlerFunc {
 	return func(c echo.Context) error {

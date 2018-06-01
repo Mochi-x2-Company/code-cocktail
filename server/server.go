@@ -55,6 +55,9 @@ func main() {
 	// create
 	e.POST("/question", controllers.QueCreate(db))
 
+	// update
+	e.PUT("/question/:id", controllers.QueUpdate(db))
+
 	// delete
 	e.DELETE("/question/:id", controllers.QueDelete(db))
 
