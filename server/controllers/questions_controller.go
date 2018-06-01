@@ -34,10 +34,13 @@ func QueCreate(db *gorm.DB) echo.HandlerFunc {
 		q := new(models.Question)
 
 		if err := c.Bind(q); err != nil {
-			fmt.Println(err)
+			fmt.Println("err")
 			fmt.Println()
+			fmt.Println(err)
 			return nil
 		}
+
+		db.Debug().Create(&q)
 
 		return c.JSON(http.StatusCreated, q)
 	}
