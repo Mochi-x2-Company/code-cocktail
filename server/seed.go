@@ -1,10 +1,10 @@
 package main
 
 import (
-	"./config"
-	"./models"
 	"flag"
 	"fmt"
+	"github.com/Mochi-x2-Company/code-cocktail/config"
+	"github.com/Mochi-x2-Company/code-cocktail/models"
 	"github.com/jinzhu/gorm"
 	"strconv"
 )

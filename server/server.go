@@ -1,11 +1,11 @@
 package main
 
 import (
-	"./config"
-	"./controllers"
-	"./models"
 	"flag"
 	"fmt"
+	"github.com/Mochi-x2-Company/code-cocktail/config"
+	"github.com/Mochi-x2-Company/code-cocktail/controllers"
+	"github.com/Mochi-x2-Company/code-cocktail/models"
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
