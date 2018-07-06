@@ -3,9 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/Mochi-x2-Company/code-cocktail/config"
-	"github.com/Mochi-x2-Company/code-cocktail/controllers"
-	"github.com/Mochi-x2-Company/code-cocktail/models"
+	"github.com/Mochi-x2-Company/code-cocktail/server/config"
+	"github.com/Mochi-x2-Company/code-cocktail/server/controllers"
+	"github.com/Mochi-x2-Company/code-cocktail/server/models"
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"

@@ -1,8 +1,8 @@
 package controllers
 
 import (
-	"../models"
 	"fmt"
+	"github.com/Mochi-x2-Company/code-cocktail/server/models"
 	"github.com/jinzhu/gorm"
 	"github.com/labstack/echo"
 	"net/http"
